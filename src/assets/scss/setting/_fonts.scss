@@ -6,14 +6,17 @@
     font-weight: normal;
     font-display: swap;
 }
-
-.mont {
-    font-family: "Montserrat";
+/* 온글잎 콘콘체 */
+@font-face {
+    font-family: 'OngleipKonkon';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
 }
-
-.nanum {
-    font-family: 'NanumSquare';
-}
-.gmarket{
-    font-family: "gmarket";
+/* Fixedsys PC통신 */
+@font-face {
+    font-family: 'RoundedFixedsys';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
 }
