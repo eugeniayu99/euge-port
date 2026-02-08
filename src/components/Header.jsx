@@ -6,8 +6,8 @@ const headerNav = [
     url:"#intro"
   },
   {
-    title:"skill",
-    url:"#skill"
+    title:"about",
+    url:"#about"
   },
   {
     title:"site",

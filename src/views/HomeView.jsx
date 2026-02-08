@@ -1,8 +1,7 @@
-import React from 'react'
 import Header from '../components/Header'
 import Skip from '../components/Skip'
 import Intro from '../components/Intro'
-import Skill from '../components/Skill'
+import About from '../components/About'
 import Site from '../components/Site'
 import Port from '../components/Port'
 import Contact from '../components/Contact'
@@ -17,7 +16,7 @@ const HomeView = () => {
       <Header />
       <Main>
         <Intro />
-        <Skill />
+        <About />
         <Site />
         <Port />
         <Contact />
