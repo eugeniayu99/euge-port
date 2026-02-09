@@ -1,5 +1,6 @@
 #work {
     background-color: var(--mainBg-color);
+    padding-bottom: 30vh;
 }
 
 .work__inner {
@@ -17,7 +18,6 @@
         text-transform: uppercase;
         border-bottom: 0.4vw solid var(--subFont-color);
         margin-bottom: 100px;
-        z-index: 100;
 
     @media (max-width: 800px) {
         width: 100%;
