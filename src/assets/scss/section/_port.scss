@@ -1,6 +1,7 @@
 #port {
     width: 100%;
     background-color: var(--mainBg-color);
+    overflow: hidden;
 }
 
 .port__inner {
@@ -36,10 +37,8 @@
         display: flex;
         flex-wrap: nowrap;
         gap: 20px;
-
-        width: max-content;
-        overflow-x: auto;
-        overflow-y: hidden;
+        width: max-content;  
+        overflow: visible;
         padding-bottom: 12px;
 
     .port__item {
@@ -48,7 +47,7 @@
         height: 70vh;
         padding: 2.5rem;
         color: #000;
-
+        margin-right: 0;
         background-color: var(--subBg100);
 
         @media (max-width: 800px) {
