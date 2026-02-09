@@ -16,10 +16,6 @@ const headerNav = [
   {
     title:"portfolio",
     url:"#port"
-  },
-  {
-    title:"contact",
-    url:"#contact"
   }
 ]
 

@@ -49,6 +49,14 @@ const Work = () => {
         <div className="work__wrap">
           {workText.map((work, key) => (
             <article className={`work__item s${key+1}`} key={key}>
+              <div className="panel__bar">
+                <span className="panel__name">PROJECT.exe</span>
+                <span className="panel__btns">
+                  <i className="dot" />
+                  <i className="dot" />
+                  <i className="dot" />
+                </span>
+              </div>
               <div className="imgBox">
                 <img src={work.img} alt={work.title} />
               </div>
