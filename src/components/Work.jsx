@@ -1,43 +1,4 @@
-import w1 from "../assets/img/ice1.png";
-
-const workText = [
-  {
-    img: w1,
-    title: "증평투어패스",
-    period: "2024.03 – 2024.06",
-    role: "Web Designer & Publisher",
-    contribution: "메인 페이지 퍼블리싱 및 반응형 구현",
-    tech: ["React", "SCSS", "GSAP"],
-    view: "https://example.com"
-  },
-  {
-    img: w1,
-    title: "증평투어패스",
-    period: "2024.03 – 2024.06",
-    role: "Web Designer & Publisher",
-    contribution: "메인 페이지 퍼블리싱 및 반응형 구현",
-    tech: ["React", "SCSS", "GSAP"],
-    view: "https://example.com"
-  },
-  {
-    img: w1,
-    title: "증평투어패스",
-    period: "2024.03 – 2024.06",
-    role: "Web Designer & Publisher",
-    contribution: "메인 페이지 퍼블리싱 및 반응형 구현",
-    tech: ["React", "SCSS", "GSAP"],
-    view: "https://example.com"
-  },
-  {
-    img: w1,
-    title: "증평투어패스",
-    period: "2024.03 – 2024.06",
-    role: "Web Designer & Publisher",
-    contribution: "메인 페이지 퍼블리싱 및 반응형 구현",
-    tech: ["React", "SCSS", "GSAP"],
-    view: "https://example.com"
-  },
-];
+import { workText } from "../constants";
 
 const Work = () => {
   return (
@@ -47,8 +8,8 @@ const Work = () => {
             Professional Projects <em>실무 프로젝트</em>
         </h2>
         <div className="work__wrap">
-          {workText.map((work, key) => (
-            <article className={`work__item s${key+1}`} key={key}>
+          {workText.map((work, idx) => (
+            <article className={`work__item s${idx+1}`} key={idx}>
               <div className="panel__bar">
                 <span className="panel__name">PROJECT.exe</span>
                 <span className="panel__btns">

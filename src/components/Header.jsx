@@ -1,23 +1,5 @@
 import { useState } from "react";
-
-const headerNav = [
-  {
-    title:"intro",
-    url:"#intro"
-  },
-  {
-    title:"about",
-    url:"#about"
-  },
-  {
-    title:"work",
-    url:"#work"
-  },
-  {
-    title:"portfolio",
-    url:"#port"
-  }
-]
+import { headerNav } from "../constants";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

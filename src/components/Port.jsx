@@ -1,114 +1,31 @@
-import React, { useEffect } from "react";
-import port01 from "../assets/img/ice1.png";
-
+import { useEffect, useRef } from "react";
+import { portText } from "../constants";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const portText = [
-  {
-    type:"Web Site",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"JavaScript",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"React",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-  {
-    type:"Design",
-    title:"타이틀",
-    desc:"포폴설명",
-    img: port01,
-    view: "/",
-    alt:"최유진 포트폴리오"
-  },
-
-]
-
 const Port = () => {
-  
+  const sectionRef = useRef(null); // #port
+  const wrapRef = useRef(null);    // .port__wrap
+
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-    const sections = gsap.utils.toArray(".port__item");
-    const container = document.querySelector("#port");
+  const section = sectionRef.current;
+  const wrap = wrapRef.current;
+  if (!section || !wrap) return;
 
-    if (!container || sections.length === 0) return;
+  const ctx = gsap.context(() => {
+    const getDistance = () => {
+      return wrap.scrollWidth - section.clientWidth;
+    };
 
-    ScrollTrigger.getAll()
-      .filter((st) => st.trigger === container)
-      .forEach((st) => st.kill());
-
-    const tween = gsap.to(sections, {
-      xPercent: -120 * (sections.length - 1),
+    gsap.to(wrap, {
+      x: () => -getDistance(),
       ease: "none",
       scrollTrigger: {
-        trigger: container,
+        trigger: section,
         start: "top 56px",
-        end: () => "+=" + container.offsetWidth,
+        end: () => `+=${getDistance()}`, // ✅ 핵심
         pin: true,
         scrub: 1,
         markers: false,
@@ -116,22 +33,21 @@ const Port = () => {
         anticipatePin: 1,
       },
     });
+  }, section);
 
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   return (
-    <section id="port">
+    <section id="port" ref={sectionRef}>
       <div className="port__inner">
         <h2 className="port__title">
           Personal Projects <em>개인 프로젝트</em>
         </h2>
-        <div className="port__wrap">     
-          {portText.map((port,key) => (
-            <article className={`port__item p${key+1}`} key={key}>
+
+        <div className="port__wrap" ref={wrapRef}>
+          {portText.map((port, idx) => (
+            <article className={`port__item p${idx + 1}`} key={idx}>
               <div className="panel__bar">
                 <span className="panel__name">{port.type}.exe</span>
                 <span className="panel__btns">
@@ -140,18 +56,33 @@ const Port = () => {
                   <i className="dot" />
                 </span>
               </div>
-              <a href={port.view}target="_blank" className="img">
-              <img src={port.img} alt={port.alt} />
+
+              <a
+                href={port.view}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="img"
+              >
+                <img src={port.img} alt={port.alt} />
               </a>
+
               <h3 className="title">{port.title}</h3>
               <p className="desc">{port.desc}</p>
-              <a href={port.view} target="_blank" className="site">사이트 보기</a>
+
+              <a
+                href={port.view}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="site"
+              >
+                사이트 보기
+              </a>
             </article>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 };
 
 export default Port;
