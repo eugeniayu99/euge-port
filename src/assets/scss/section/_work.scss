@@ -49,10 +49,27 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 6px 6px 0 #000, 2px 2px 0 rgba(0, 0, 0, 0.25);
-            &.s1 { background-color: var(--subBg100); top: 180px; }
-            &.s2 { background-color: var(--subBg200); top: 200px; }
+            &.s1 { 
+                background-color: var(--subBg100); top: 180px; 
+                .imgBox{
+                    img{
+                        width: 75%;
+                    }
+                }
+            }
+            &.s2 { 
+                background-color: var(--subBg200); top: 200px; 
+                .imgBox{
+                    img{
+                        width: 75%;
+                    }
+                }
+            }
             &.s3 { background-color: var(--subBg300); top: 220px; }
             &.s4 { background-color: var(--subBg400); top: 240px; }
+            &.s5 { background-color: var(--subBg500); top: 260px; }
+            &.s6 { background-color: var(--subBg600); top: 280px; }
+            &.s7 { background-color: var(--subBg700); top: 300px; }
 
             .panel__bar {
                 grid-column: 1 / -1;
@@ -110,13 +127,15 @@
         }
 
         .text {
-            padding-top: 140px;
             text-align: center;
+            align-self: center;
 
             .title {
             font-family: var(--fixedsys-font);
-            font-size: 40px;
+            font-size: clamp(18px, 4vw, 40px);
             margin-bottom: 10px;
+            word-break: keep-all;
+            padding: 0 15px;
             }
 
             .info {
@@ -154,17 +173,13 @@
                 text-transform: uppercase;
                 letter-spacing: 0.04em;
                 font-size: 20px;
-
-                margin-top: 35px;
+                margin-top: 25px;
                 padding: 10px 14px;
-
                 border: 2px solid #000;
                 border-radius: 10px;
                 background: rgba(255, 255, 255, 0.55);
-
                 color: #000;
                 text-decoration: none;
-
                 box-shadow: 3px 3px 0 #000, inset 1px 1px 0 rgba(255, 255, 255, 0.7);
                 transition: transform 0.06s ease, box-shadow 0.06s ease;
 
@@ -198,6 +213,7 @@
                 grid-column: 1 / -1;
                 grid-row: 2 / 3;
                 margin: 16px;
+                min-height: 245px;
             }
 
             .text {

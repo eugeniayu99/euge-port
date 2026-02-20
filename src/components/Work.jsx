@@ -33,7 +33,11 @@ const Work = () => {
                       <span key={i}>{t}</span>
                     ))}
                   </div>
-                  <a href={work.view}>view</a>
+                  {work.view && (
+                    <a href={work.view} target="_blank" rel="noopener noreferrer">
+                      view
+                    </a>
+                  )}
                 </div>
                 
               </div>

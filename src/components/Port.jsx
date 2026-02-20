@@ -25,7 +25,7 @@ const Port = () => {
       scrollTrigger: {
         trigger: section,
         start: "top 56px",
-        end: () => `+=${getDistance()}`, // ✅ 핵심
+        end: () => `+=${getDistance()}`,
         pin: true,
         scrub: 1,
         markers: false,
